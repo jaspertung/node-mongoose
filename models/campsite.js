@@ -3,6 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+//add subdocument
 const commentSchema = new Schema({
     rating: {
         type: Number,
@@ -32,10 +33,10 @@ const campsiteSchema = new Schema({ //instantiates new object named campsiteSche
         type: String,
         required: true
     },
-    comments: [commentSchema]
+    comments: [commentSchema] //add schema as subdocument inside campsiteSchema
 }, { //2nd arg (optional): configs (ex. timestamps- createdat & updatedat)
     timestamps: true
 });
 
-//const Campsite = mongoose.model('Campsite', campsiteSchema) ---------create model named campsites (1st arg: Campsite, 2nd arg: schema used for collection)
+//const Campsite = mongoose.model('Campsite', campsiteSchema) //create model named campsites (1st arg: Campsite, 2nd arg: schema used for collection)
 module.exports = Campsite;
